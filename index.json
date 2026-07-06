@@ -134,6 +134,25 @@
       "latestVersion": "1.0.0"
     },
     {
+      "ns": "github:gopu-bruno",
+      "name": "messaging-api",
+      "title": "Messaging API",
+      "summary": "Send SMS, MMS and WhatsApp messages (Twilio-backed) via the REST API.",
+      "category": "comms",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "type": "git",
+          "source": {
+            "url": "https://github.com/gopu-bruno/bruno-collections",
+            "ref": "main",
+            "subdir": "twilio-messaging"
+          }
+        }
+      ],
+      "latestVersion": "1.0.0"
+    },
+    {
       "ns": "github:openai",
       "name": "openai-api",
       "title": "OpenAI API",
@@ -273,6 +292,6 @@
       "latestVersion": "1.0.0"
     }
   ],
-  "totalCollections": 14,
+  "totalCollections": 15,
   "publishers": 10
 }
