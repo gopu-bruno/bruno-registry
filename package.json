@@ -1,0 +1,12 @@
+{
+  "name": "bruno-registry",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Git-native index of OpenCollection / Bruno API collections. The registry is just this repo.",
+  "scripts": {
+    "seed": "node scripts/seed.mjs",
+    "build": "node scripts/build-index.mjs",
+    "validate": "node scripts/build-index.mjs --check"
+  }
+}

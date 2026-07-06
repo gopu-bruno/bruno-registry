@@ -1,0 +1,17 @@
+{
+  "ns": "github:gopu-bruno",
+  "name": "auth0-management-api",
+  "title": "Auth0 Management API",
+  "summary": "Auth0 Management API",
+  "category": "payments",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "type": "git",
+      "source": {
+        "url": "https://github.com/gopu-bruno/bruno-collections",
+        "subdir": "auth0-management-api"
+      }
+    }
+  ]
+}

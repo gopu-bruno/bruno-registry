@@ -1,0 +1,18 @@
+{
+  "ns": "github:algolia",
+  "name": "search-api",
+  "title": "Algolia Search API",
+  "summary": "Indexing, search and recommend.",
+  "category": "data",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "type": "git",
+      "source": {
+        "url": "https://github.com/gopu-bruno/bruno-collections",
+        "ref": "main",
+        "subdir": "algolia-search-api"
+      }
+    }
+  ]
+}
