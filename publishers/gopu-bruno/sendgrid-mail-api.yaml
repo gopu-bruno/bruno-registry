@@ -1,0 +1,13 @@
+ns: gopu-bruno
+name: sendgrid-mail-api
+title: SendGrid Mail API
+summary: Transactional and marketing email, templates and delivery stats.
+type: collection
+category: comms
+versions:
+  - version: 1.0.0
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      type: git
+      subdir: sendgrid-mail-api
+      ref: main
