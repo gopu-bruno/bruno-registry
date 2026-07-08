@@ -1,0 +1,14 @@
+ns: github
+name: rest-api
+title: GitHub REST API
+summary: Core endpoints of the GitHub REST API.
+type: collection
+category: devops
+featured: true
+versions:
+  - version: 1.0.0
+    type: git
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      ref: main
+      subdir: github-rest-api

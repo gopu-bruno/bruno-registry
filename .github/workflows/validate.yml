@@ -1,0 +1,26 @@
+name: validate
+
+# On any PR touching the catalog, validate every entry is well-formed and that
+# its path matches its ns/name. There is no index.json to build — the registry
+# server projects these files into its own store on merge to main.
+on:
+  pull_request:
+    paths:
+      - 'publishers/**'
+      - 'scripts/**'
+      - 'schema/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci || npm install
+      - run: npm run validate
