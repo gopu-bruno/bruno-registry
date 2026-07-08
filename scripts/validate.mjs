@@ -72,9 +72,9 @@ function validate(entry, relPath) {
   for (const v of entry.versions) {
     if (!v || !v.version) throw new Error(`${where}: a version is missing "version"`);
     if (!SEMVER_RE.test(v.version)) throw new Error(`${where}: version "${v.version}" must be semver (e.g. 1.0.0)`);
-    if (!SOURCE_TYPES.includes(v.type)) throw new Error(`${where}: version ${v.version} has invalid type "${v.type}" (valid: ${SOURCE_TYPES.join(', ')})`);
     if (!v.source || typeof v.source !== 'object') throw new Error(`${where}: version ${v.version} is missing "source"`);
     if (!v.source.url) throw new Error(`${where}: version ${v.version} is missing source.url`);
+    if (!SOURCE_TYPES.includes(v.source.type)) throw new Error(`${where}: version ${v.version} has invalid source.type "${v.source.type}" (valid: ${SOURCE_TYPES.join(', ')})`);
   }
 }
 

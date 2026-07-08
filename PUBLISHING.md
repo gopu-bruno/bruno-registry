@@ -52,9 +52,9 @@ gh pr create --repo gopu-bruno/bruno-registry --base main --head <you>:add-<ns>-
 Edit the same file and append to `versions` — git or url:
 ```yaml
   - version: 1.1.0
-    type: url
     source:
       url: https://cdn.example.com/<ns>/<name>/1.1.0/opencollection.yml
+      type: url
     hash: sha256-…
 ```
 Commit, push, open a PR. On merge, `1.1.0` becomes the latest (derived by semver).

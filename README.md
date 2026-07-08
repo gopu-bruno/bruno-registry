@@ -30,9 +30,9 @@ version-tracking: git-tags
 
 versions:
   - version: 1.0.0
-    type: git
     source:
       url: https://github.com/stripe/stripe-bruno-collection
+      type: git
       subdir: payment-api
       ref: stripe-payment-api@1.0.0
     hash: e8d7790d6f9aae24cbe28275f995ff47d1b2ade0

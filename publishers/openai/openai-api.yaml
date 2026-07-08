@@ -7,8 +7,8 @@ category: ai
 featured: true
 versions:
   - version: 1.0.0
-    type: git
     source:
       url: https://github.com/gopu-bruno/bruno-collections
-      ref: main
+      type: git
       subdir: openai-openai-api
+      ref: main
