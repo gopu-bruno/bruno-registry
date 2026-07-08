@@ -1,0 +1,13 @@
+ns: gopu-bruno
+name: discord-api
+title: Discord API
+summary: Bots, guilds, channels and messages on the Discord API.
+type: collection
+category: comms
+versions:
+  - version: 1.0.0
+    type: git
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      ref: main
+      subdir: discord-rest-api
