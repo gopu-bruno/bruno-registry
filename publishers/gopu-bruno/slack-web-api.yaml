@@ -1,0 +1,13 @@
+ns: gopu-bruno
+name: slack-web-api
+title: Slack Web API
+summary: Post messages and manage channels and users across a Slack workspace.
+type: collection
+category: comms
+versions:
+  - version: 1.0.0
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      type: git
+      subdir: slack-web-api
+      ref: main
