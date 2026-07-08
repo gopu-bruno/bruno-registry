@@ -1,0 +1,13 @@
+ns: gopu-bruno
+name: cloudflare-api
+title: Cloudflare API
+summary: DNS, zones, workers and cache control across Cloudflare.
+type: collection
+category: devops
+versions:
+  - version: 1.0.0
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      type: git
+      subdir: cloudflare-api
+      ref: main
