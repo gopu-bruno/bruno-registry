@@ -15,9 +15,9 @@ version-tracking: git-tags
 
 versions:
   - version: 1.0.0
-    type: git
     source:
       url: https://github.com/anthropics/bruno-collections
+      type: git
       subdir: claude-api
       ref: claude-api@1.0.0
 ```
@@ -35,23 +35,24 @@ A collection's `versions` array is the source of truth. Each version is **indepe
 ```yaml
 versions:
   - version: 1.0.0
-    type: git
     source:
       url: https://github.com/you/collections
+      type: git
       subdir: my-api
       ref: my-api@1.0.0
   - version: 1.1.0
-    type: url
     source:
       url: https://cdn.example.com/my-api/1.1.0/opencollection.yml
+      type: url
     hash: sha256-q1Mng3dGfP6mWj5kc3PqV0i8x0Qk2bq1bH8rXjYwZ0E=
 ```
 
 | Field | Required | Notes |
 |---|---|---|
 | `version` | yes | Semver `major.minor.patch` (optional `-prerelease`). The **latest** shown is derived by semver precedence — order in the array doesn't matter. |
-| `type` | yes | `git` or `url`. |
-| `source` | yes | Always `{ url }`. For `git` the `url` is the repo to clone (may add `ref?`, `subdir?`); for `url` it's a direct download of the `opencollection.yml` artifact. |
+| `source.url` | yes | For `git` the repo to clone; for `url` a direct download of the `opencollection.yml` artifact. |
+| `source.type` | yes | `git` or `url`. |
+| `source.ref` / `source.subdir` | no | git only: ref to check out, and path within the repo. |
 | `hash` | no | SHA-256 of the resolved artifact, SRI-style `sha256-<base64>`. The client verifies it after download — recommended especially for `url` sources. |
 
 **Publishing a new version = a PR that appends an object to `versions`.**

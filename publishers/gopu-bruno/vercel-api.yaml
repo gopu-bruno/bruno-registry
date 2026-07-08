@@ -6,7 +6,7 @@ type: collection
 category: payments
 versions:
   - version: 1.0.0
-    type: git
     source:
       url: https://github.com/gopu-bruno/bruno-collections
+      type: git
       subdir: vercel-vercel-api
