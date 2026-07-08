@@ -1,27 +1,28 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Registry collection entry",
-  "description": "One file per collection at collection/<provider>/<owner>/<name>.json. `ns` is the git identity \"<provider>:<owner>\" (e.g. github:acme) and expands to the first two path segments. A pointer to one or more published versions of a Bruno/OpenCollection. Each version is independently sourced (git or url) — adding a version is a PR that appends to `versions`. The registry stores no usage stats; install counts come from a separate public API.",
+  "description": "One file per collection at publishers/<ns>/<name>.yaml. `ns` is a free-form publisher slug (e.g. \"stripe\") allocated first-come, first-served by maintainer review — there is no automated ownership check. A pointer to one or more published versions of a Bruno/OpenCollection; each version is independently sourced (git or url). The registry stores no usage stats and generates no index.json — the registry server projects these files into its own store.",
   "type": "object",
-  "required": ["ns", "name", "title", "category", "summary", "versions"],
+  "required": ["ns", "name", "title", "category", "summary", "type", "versions"],
   "additionalProperties": false,
   "properties": {
-    "ns": { "type": "string", "pattern": "^[a-z0-9-]+:[a-z0-9-]+$", "description": "Namespace as \"<provider>:<owner>\" (e.g. github:acme). Expands to the collection/<provider>/<owner>/ folders." },
+    "ns": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Publisher namespace slug (e.g. \"stripe\"). Must match the <ns> folder. Allocated manually, first-come first-served." },
     "name": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Collection name. Must match the <name> filename." },
     "title": { "type": "string", "description": "Display title shown in search and on the detail page." },
     "summary": { "type": "string", "description": "One sentence shown under the title in search." },
+    "type": { "type": "string", "enum": ["collection"], "description": "The kind of entry. Only collections for now." },
     "category": {
       "type": "string",
       "enum": ["payments", "ai", "auth", "devops", "comms", "data", "storage", "productivity"]
     },
-    "version_tracking": { "type": "string", "enum": ["git_tags", "manual"], "description": "How versions are maintained: derived from git tags, or listed manually." },
+    "version-tracking": { "type": "string", "enum": ["git-tags", "manual"], "description": "How versions are maintained: derived from git tags, or listed manually." },
     "verified": { "type": "boolean", "description": "EDITORIAL — set by maintainers during review. Omit when submitting." },
     "official": { "type": "boolean", "description": "EDITORIAL — set by maintainers during review. Omit when submitting." },
     "featured": { "type": "boolean", "description": "EDITORIAL — set by maintainers during review. Omit when submitting." },
     "versions": {
       "type": "array",
       "minItems": 1,
-      "description": "Every published version, newest or oldest order doesn't matter (latest is derived by semver). Add one entry per version via PR; `type` may differ across versions (e.g. v1.0 from git, v1.1 from url).",
+      "description": "Every published version; order doesn't matter (latest is derived by semver). Add one entry per version via PR; `type` may differ across versions (e.g. v1.0 from git, v1.1 from url).",
       "items": {
         "type": "object",
         "required": ["version", "type", "source"],

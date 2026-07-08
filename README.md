@@ -1,24 +1,39 @@
 # bruno-registry
 
-A **git-native, versioned index** of [Bruno](https://usebruno.com) / OpenCollection API collections — a hybrid registry where each version is independently sourced (`git` or `url`).
+A **git catalog** of [Bruno](https://usebruno.com) / OpenCollection API collections — one file per collection, each version independently sourced (`git` or `url`).
 
-There is **no server**. The registry *is* this repository:
-
-- Each collection is one file: [`collection/<provider>/<owner>/<name>.json`](collection/) — the namespace `ns` is `<provider>:<owner>` (e.g. `github:acme`) and expands to the first two folders. It lists the collection's **versions**, each pointing at a `git` repo or a `url` artifact, plus display metadata.
-- [`index.json`](index.json) is generated from those files by CI and is what the website and the Bruno app fetch. The build is pure — **no network calls, no stats**. It just flattens the entries and derives each collection's latest version (by semver).
-- **Install counts** come from a separate **public API**, not from here — the registry stores no usage data and has no dependency on GitHub Releases.
-- Adding a collection *or a new version* is a **pull request** editing a file under `collection/`.
-
-See [ARCHITECTURE.md](ARCHITECTURE.md) for the model and [PUBLISHING.md](PUBLISHING.md) for the publish flow (app + CLI).
+- Each collection is one file: [`publishers/<ns>/<name>.yaml`](publishers/) — `ns` is a free-form **publisher slug** (e.g. `stripe`) that maps to the first folder. It lists the collection's **versions**, each pointing at a `git` repo or a `url` artifact, plus display metadata and `type: collection`.
+- There is **no `index.json`**. The [registry server](https://github.com/usebruno/bruno) (`bruno-registry-server`) projects this catalog into its own store on merge and serves it over an HTTP API — that API is what the website and the Bruno app read.
+- **Namespaces are allocated manually** — first-come, first-served, by maintainer review. There is no automated ownership check.
+- **Install counts** are measured by the server, never stored in this repo.
+- Adding a collection *or a new version* is a **pull request** editing a file under `publishers/`.
 
 ## Local development
 
 ```bash
-npm run seed      # write the starter collections (one-off)
-npm run build     # regenerate index.json from collection/
-npm run validate  # validate entries without writing (what PR CI runs)
+npm install
+npm run validate   # validate every publishers/**/*.yaml (what PR CI runs)
 ```
 
 ## Adding a collection
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Short version: add `collection/<provider>/<owner>/<name>.json` matching [the schema](schema/collection.schema.json) and open a PR.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Short version: add `publishers/<ns>/<name>.yaml` matching [the schema](schema/collection.schema.json) and open a PR.
+
+```yaml
+ns: stripe
+name: stripe-api
+title: Stripe Payment API
+summary: Official Stripe Payment API Collection
+type: collection
+category: payments
+version-tracking: git-tags
+
+versions:
+  - version: 1.0.0
+    type: git
+    source:
+      url: https://github.com/stripe/stripe-bruno-collection
+      subdir: payment-api
+      ref: stripe-payment-api@1.0.0
+    hash: e8d7790d6f9aae24cbe28275f995ff47d1b2ade0
+```

@@ -1,0 +1,13 @@
+ns: cloudinary
+name: upload-api
+title: Cloudinary Upload
+summary: Upload, transform and deliver media.
+type: collection
+category: storage
+versions:
+  - version: 1.0.0
+    type: git
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      ref: main
+      subdir: cloudinary-upload-api

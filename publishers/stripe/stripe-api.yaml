@@ -1,0 +1,19 @@
+ns: stripe
+name: stripe-api
+title: Stripe API
+summary: Payments, customers and webhooks for the Stripe REST API.
+type: collection
+category: payments
+featured: true
+versions:
+  - version: 1.0.0
+    type: git
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      ref: stripe-stripe-api@1.0
+      subdir: stripe-stripe-api
+  - version: 1.1.0
+    type: url
+    source:
+      url: https://raw.githubusercontent.com/gopu-bruno/bruno-collections/main/stripe-stripe-api/opencollection.yml
+    hash: sha256-WouPZ2tr1I47X0itEwCgAlmoUOiVurtE1AwObeQg95U=

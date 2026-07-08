@@ -1,0 +1,13 @@
+ns: square
+name: payments-api
+title: Square Payments API
+summary: Payments, refunds, orders and catalog via the Square API.
+type: collection
+category: payments
+versions:
+  - version: 1.0.0
+    type: git
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      ref: main
+      subdir: square-payments-api
