@@ -1,0 +1,13 @@
+ns: openweather
+name: weather-api
+title: OpenWeather API
+summary: Current weather, forecasts and geocoding from OpenWeather.
+type: collection
+category: data
+versions:
+  - version: 1.0.0
+    type: git
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      ref: main
+      subdir: openweather-weather-api
