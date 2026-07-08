@@ -1,0 +1,13 @@
+ns: gopu-bruno
+name: notion-api
+title: Notion API
+summary: Query databases, create pages and manage blocks in Notion.
+type: collection
+category: productivity
+versions:
+  - version: 1.0.0
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      type: git
+      subdir: notion-notion-api
+      ref: main
