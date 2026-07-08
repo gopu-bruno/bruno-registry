@@ -1,0 +1,13 @@
+ns: mongodb
+name: atlas-api
+title: MongoDB Atlas API
+summary: Manage clusters, database users and projects in MongoDB Atlas.
+type: collection
+category: data
+versions:
+  - version: 1.0.0
+    type: git
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      ref: main
+      subdir: mongodb-atlas-data-api
