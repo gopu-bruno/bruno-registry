@@ -1,0 +1,13 @@
+ns: gopu-bruno
+name: linear-api
+title: Linear API
+summary: Issues, projects and cycles over the Linear GraphQL API.
+type: collection
+category: productivity
+versions:
+  - version: 1.0.0
+    source:
+      url: https://github.com/gopu-bruno/bruno-collections
+      type: git
+      subdir: linear-linear-graphql
+      ref: main
